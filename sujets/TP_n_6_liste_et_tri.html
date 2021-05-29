@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<!-- source : https://www.w3schools.com/js/tryit.asp?filename=tryjs_myfirst -->
+<head>
+  <meta charset="utf-8"/>
+  <style type="text/css">
+    table,td {
+      border: 1px solid #333;
+      text-align: center;
+      min-width: 120px;
+    }
+
+    thead,tfoot {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h2>Tri de livres</h2>
+  <!-- A partir du template fourni “TP_n_6_liste_et_tri.html”, affichez le contenu de la 
+    liste sous forme de tableau HTML, avec 2 boutons pour trier par titre ou par numéro-->
+
+  <div id='my_table'>
+    <table>
+      <thead>
+        <td>Title</td>
+        <td>Number</td>
+        <td>Theme</td>
+      </thead>
+      <tbody id="pbody">
+      </tbody>
+    </table>
+  </div>
+  <br>
+  <button id="title" onclick='tri("title")'>Tri par titre</button>
+  <button id="number" onclick='tri("number")'>Tri par numéro</button>
+  <button id="theme" onclick='tri("theme")'>Tri par themes</button>
+
+  <script>
+    const discworld_books_data = [
+    { 'title' : 'Reaper man', 'number' : 12, 'theme' : 'Death' },
+    { 'title' : 'Mort', 'number' : 4, 'theme' : 'Death' },
+    { 'title' : 'Color of Magic', 'number' : 1, 'theme' : 'Rincewind' },
+    { 'title' : 'Guards ! Guards !', 'number' : 15, 'theme' : 'City watch' },
+    { 'title' : 'Witches abroad', 'number' : 14, 'theme' : 'Witches' },
+    ]; 
+     
+    function tableau(books){
+      let tablebody="";
+      for (b of books){
+        tablebody +=`<tr><td>${b.title}</td><td>${b.number}</td><td>${b.theme}</td></tr>`;
+      }
+      document.getElementById('pbody').innerHTML = tablebody;
+    }
+    
+    tableau(discworld_books_data);
+
+    function tri(selector){
+      let sortedbooks = discworld_books_data;
+      switch (selector) {
+        case "title":
+          sortedbooks.sort(function (a, b) {
+            var titleA = a.title.toUpperCase();
+            var titleB = b.title.toUpperCase();
+            if (titleA < titleB) {return -1;}
+            if (titleA > titleB) {return 1;}
+            return 0;
+          });
+          break;
+        case "number":
+          sortedbooks.sort(function (a, b) {
+            return a.number - b.number;
+          });
+          break;
+        case "theme":
+        sortedbooks.sort(function (a, b) {
+            var themeA = a.theme.toUpperCase();
+            var themeB = b.theme.toUpperCase();
+            if (themeA < themeB) {return -1;}
+            if (themeA > themeB) {return 1;}
+            if (themeA === themeB) {return a.number - b.number;}
+          });
+          break;
+      }
+      tableau(sortedbooks);
+    }
+  </script>
+</body>
+</html> 

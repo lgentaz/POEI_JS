@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <h2>Batman</h2>
+    <div id='batman_song'></div>
+    <script>
+      function batman(){
+        let randnum = Math.floor(Math.random() * 10);
+        console.log(randnum);
+        let phrase= '<p>Batman</p>';
+        for(let i=1;i<randnum;i++){phrase += '<p>Batman</p>';}
+        document.getElementById('batman_song').innerHTML = phrase;
+      }
+      document.body.onload=batman;
+    </script>
+  </body>
+</html> 

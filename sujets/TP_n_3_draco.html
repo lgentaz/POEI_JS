@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <h2>Moképon</h2>
+    <div>
+      <h3 id='draco'>MiniDraco</h3>
+      <img id='image' src='https://www.pokepedia.fr/images/thumb/1/11/Minidraco-RFVF.png/250px-Minidraco-RFVF.png'/>
+      <br>
+      <button id='evo'>Evoluer</button>
+    </div>
+
+    <script>
+      function evolve(){
+        let pet = document.getElementById("draco").innerHTML;
+        let evo = document.getElementById("evo").innerHTML;
+        console.log(pet);
+        if (evo === "Renaissance"){
+          document.getElementById("draco").innerHTML = "MiniDraco";
+          document.getElementById("image").src = 'https://www.pokepedia.fr/images/thumb/1/11/Minidraco-RFVF.png/250px-Minidraco-RFVF.png';
+          document.getElementById("evo").innerHTML = "Evoluer"
+        }
+        if (pet === "MiniDraco"){
+          document.getElementById("draco").innerHTML = "Draco";
+          document.getElementById("image").src = "https://www.pokepedia.fr/images/thumb/d/d1/Draco-RFVF.png/250px-Draco-RFVF.png";
+        } else if (pet === "Draco"){
+          document.getElementById("draco").innerHTML = "Dracolosse";
+          document.getElementById("image").src = "https://www.pokepedia.fr/images/thumb/8/87/Dracolosse-RFVF.png/250px-Dracolosse-RFVF.png";
+          document.getElementById("evo").innerHTML = "Renaissance";
+        }
+      }
+
+      document.getElementById("evo").addEventListener('click', evolve);
+
+    </script>
+
+  </body>
+</html> 
