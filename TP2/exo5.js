@@ -15,16 +15,18 @@ if (supers.includes('batman')){
   alert(`Batman fait bien parti des supers. Il est en position ${supers.indexOf('batman')}`);
 }
 
-let i =0 ;
+let i = 0 ;
 while(supers[i] != "batman"){
   i++;
-  if (supers[i] === "batman"){i++;break;}
+  if (supers[i] === "batman"){break;}
 }
+i++;
 console.log(`on a parcouru ${i} cases jusqu'à batman`)
 
-i =0 ;
+i = 0;
 while(supers[i] != "joker"){
   i++;
-  if (supers[i] === "joker"){i++;break;}
+  if (supers[i] === "joker"){break;}
 }
-console.log(`on a parcouru ${i} cases jusqu'à batman`)
+i++;
+console.log(`on a parcouru ${i} cases jusqu'au joker`)

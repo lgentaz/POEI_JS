@@ -8,6 +8,7 @@ for (n of notes){
 }
 
 console.log("Notes sans iteration :");
+console.log(notes[0]);
 notes.forEach(n => console.log(n));
 
 //Calculer et afficher la moyenne des notes stockées dans la variable notes.
